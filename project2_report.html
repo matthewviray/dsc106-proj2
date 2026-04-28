@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Project 2 Report</title>
+        <style>
+            :root {
+                --color-neutral-95: hsl(220 10% 95%);
+                --color-neutral-90: hsl(220 10% 90%);
+                --color-neutral-80: hsl(220 10% 80%);
+                --color-neutral-70: hsl(220 10% 70%);
+                --color-neutral-60: hsl(220 10% 60%);
+                --color-neutral-50: hsl(220 10% 50%);
+                --color-neutral-40: hsl(220 10% 40%);
+                --color-neutral-30: hsl(220 10% 30%);
+                --color-neutral-20: hsl(220 10% 20%);
+                --color-neutral-10: hsl(220 10% 10%);
+            }
+
+            html {
+                font: 100%/1.5 system-ui;
+                counter-reset: figure;
+                background: var(--color-neutral-95);
+                max-width: min(75vw, 80em);
+                margin: 0 auto;
+            }
+
+            /* Headings */
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                line-height: 1.1;
+                font-weight: 600;
+                text-wrap: balance;
+            }
+
+            h1,
+            h2 {
+                border-bottom: 1px solid var(--color-neutral-80);
+                padding-bottom: 0.2em;
+            }
+
+            h1 {
+                margin-block: 1em 0.5rem;
+                font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+                font-weight: 800;
+
+                small {
+                    display: block;
+                    width: fit-content;
+                    padding: 0.2em 0.5em;
+                    margin-inline: auto;
+                    color: white;
+                    background: var(--color-neutral-40);
+                    font-size: 40%;
+                    text-transform: uppercase;
+                    white-space: nowrap;
+                }
+            }
+
+            h2 {
+                font-size: 180%;
+                color: var(--color-neutral-30);
+            }
+
+            h3 {
+                font-size: 130%;
+            }
+
+            /* Lists */
+
+            ul,
+            ol {
+                padding-inline-start: 2em;
+            }
+
+            li {
+                &::marker {
+                    color: var(--color-neutral-40);
+                }
+
+                + li {
+                    margin-top: 0.2em;
+                }
+            }
+
+            /* Sectioning elements */
+
+            header {
+                padding-block: 1em;
+                text-align: center;
+            }
+
+            main {
+                background: white;
+                color: var(--color-neutral-20);
+                border-radius: 1rem;
+                padding: 0.1rem 2rem;
+            }
+
+            /* Figures */
+
+            figure img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            figure {
+                margin: 1em 0;
+                padding: 0.5rem;
+                margin-inline: -0.5em;
+                border: 1px solid var(--color-neutral-80);
+                box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+                text-align: center;
+                background: white;
+
+                > figcaption {
+                    font: 500 75% var(--font-sans);
+                    background: var(--color-neutral-95);
+                    padding: 0.5rem;
+                    margin: -0.5rem;
+                    margin-top: 0.5rem;
+                    counter-increment: figure;
+                    text-align: left;
+
+                    &::before {
+                        content: "Figure " counter(figure) ": ";
+                        font-weight: bold;
+                        color: var(--color-neutral-40);
+                    }
+
+                    a:not(:hover, :focus, :active) {
+                        color: inherit;
+                        text-decoration: underline;
+                        text-decoration-color: color-mix(
+                            in lab,
+                            currentColor,
+                            transparent 70%
+                        );
+                    }
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>
+                <small>Project 2</small>
+                Persuasive or Deceptive Visualization?
+            </h1>
+
+            <p><strong>Matthew Viray, Taejun park, Raymond Wu, Kyle Dang </strong> — <em>mjviray@ucsd.edu, kyd002@ucsd.edu, raw011@ucsd.edu, tap008@ucsd.edu</em></p>
+        </header>
+
+        <main>
+            <h2>Proposition: [STATE PROPOSITION]</h2>
+
+            <section>
+                <h3>FOR the Proposition</h3>
+
+                <figure>
+                    <img src="viz-png/proj2-plot1.png" alt="Visualization For the Proposition" />
+                    <figcaption>Our proposition stems from the notion that developing countries 
+                        are often associated with rising emissions due to rapid industrialization, 
+                        population growth, and reliance on lower-cost, carbon-intensive energy sources. 
+                        As these economies expand, their total CO2 output increases, leading 
+                        to the perception that they are the primary drivers of current environmental degradation.</figcaption>
+                </figure>
+
+                <p>Design Decisions and Rationale:</p>
+
+                <ul>
+                    <li><strong>Slanted Title | Score: -1</strong>: The title
+                        “Developing Countries Drive Rising CO2 Damage”
+                        informs the conclusion of the visualization
+                        before the reader is able to process the data,
+                        potentially suggesting them to interpret the
+                        chart in a particular direction. Alternatively,
+                        we could have chosen a more neutral title such
+                        as “CO2 Damage by Development Status Over Time,”
+                        but we ultimately sided with the slanted version
+                        to maximize persuasive impact without being
+                        immediately obvious.</li>
+                    <li><strong>Country Groupings | Score: 0.5</strong>: The metadata in the
+                        dataset was used to combine the countries labeled
+                        ‘upper middle income’ and ‘lower middle income’
+                        into the developing category while the ‘lower income’
+                        and ‘higher income’ were classified as their
+                        respective categories. This grouping simplifies
+                        the comparison into broader development categories,
+                        making the overall trend easier to interpret at a
+                        glance. However, it also introduces some abstraction,
+                        as countries with potentially different economic
+                        structures and emission profiles are aggregated
+                        together into a mean value, which may smooth over
+                        meaningful within-group variation.</li>
+                    <li><strong>Color Bias | Score: -1</strong>: Within the plot,
+                        Developing countries are depicted in bright red
+                        while Developed countries appear in cool blue,
+                        potentially misleading the reader towards the
+                        cultural association of red as an alarming trend or
+                        blue with a more neutral tone. This decision could
+                        guide viewers’ emotional response before engaging with
+                        the true data trends, leading us to consider
+                        implementing a colorblind-friendly neutral palette,
+                        but the red/blue contrast proved to be an effectively
+                        distinct contrast between the two opposing trends.</li>
+                    <li><strong>Metric Choice (% of GNI) | Score: 1</strong>: By normalizing
+                        CO2 damage as a share of gross national income, we
+                        were able to effectively compare countries of vastly
+                        different economic sizes, since developing countries
+                        bear a consistently larger economic burden from CO2
+                        per dollar of wealth. A country like the United States
+                        produces enormous absolute CO2 damage but its equally
+                        enormous economy absorbs that cost differently than a
+                        smaller developing economy would. This measure prevents
+                        wealthier nations from appearing more harmful simply
+                        because their economics are larger.</li>
+                    <li><strong>Aggregation Choice (Averaged by income group) | Score: 1.5</strong>:
+                        Averaging weights of each country equally regardless
+                        of its economic size or emissions contribution is
+                        helpful when the goal is to compare country-level
+                        experiences. By treating each country as a single
+                        observation, the metric avoids allowing a few large
+                        economies to dominate the trend, which would otherwise
+                        obscure patterns present across the majority of
+                        countries. This makes the visualization more
+                        representative of how CO₂ damage is distributed across
+                        nations as individual units, rather than reflecting the
+                        behavior of only the largest contributors. As a result,
+                        averaging % of Gross National Income provides a clearer
+                        picture of the general damage of countries within each
+                        development group, making it well-suited for
+                        cross-country comparisons of relative impact.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>AGAINST the Proposition</h3>
+
+                <figure>
+                    <img src="viz-png/proj2-plot2.png" alt="Visualization Against the Proposition" />
+                    <figcaption>The visualization of Electric Power Consumption 
+                        per Capita from the years 1971 to 2014, illustrates the 
+                        average electricity consumption per person for each 
+                        group across the years where all three groups have 
+                        consistent data coverage, with the developed trends 
+                        resting far above the developing and low income trends.
+                         Here, per-capita energy consumption is a direct proxy 
+                         for per-person emissions and environmental footprint, 
+                         as the large gap shows that each person in a developed 
+                         country consumes far more energy -- and by extension 
+                         causes far more environmental change than someone in a
+                          developing country. The shaded area beneath the 
+                          developed line emphasizes the cumulative scale of the
+                           gap, while the annotations highlight the notion that
+                            each person in a developed nation added 5,812 kWh 
+                            of annual consumption since 1971, and that the gap
+                             between developed and low-income countries reached
+                              an estimated 33x multiplier by 2014.
+</figcaption>
+                </figure>
+
+                <p>Design Decisions and Rationale:</p>
+
+                <ul>
+                    <li><strong>Slanted Title | Score: -1</strong>: The title "The Per-Person Reality: Citizens of Developed Nations Consume Dramatically More Electricity Than Those In Low-Income Countries" is one that may be long, but guides viewers to the most extreme comparison illustrated by the visualization before they are able to truly examine the trends in the chart. Furthermore, the phrasing of "Per-Person Reality" suggests this metric as the objectively correct method to measure environmental involvement in average electricity consumption, while dismissing other metrics of framing despite both options having legitimate analytical significance.</li>
+                    <li><strong>Filled Area Under Developed Trend Line | Score: -0.5</strong>: Shading the region beneath the prominent Developed trend line suggests that it is visually and contextually dominant and more significant compared to the latter two trend lines for developing and low-income groups. Viewers are more likely to be drawn towards visually striking objects or areas with larger mass, giving the Developed group a hint of disproportionate visual weight before the viewer can engage with the true values.</li>
+                    <li><strong>Per-Capita Metric | Score: 1</strong>: By focusing on the metric of electricity consumption per person, we were able to establish a fair method to compare groups of vastly differing population sizes, as developing countries have roughly six times the population of developed countries, and aggregating consumption figures would heavily skew the data by individual observations alone. This specific metric reveals that each individual person in a developed nation has a dramatically larger electricity footprint and that electricity consumption can be interpreted as a direct proxy for emissions and environmental damage.</li>
+                    <li><strong>33x Gap Annotation | Score: -0.5</strong>: By highlighting the 33x multiplicative gap between developed groups against low-income groups rather than the developing groups, we effectively maximized the persuasive impact by underscoring a much larger difference in trends between groups, leading the viewer to naturally assume the comparison is against the developing group since these two groups are the focus of the counter-argument. This is an instance of a subtle misdirection that overexaggerates the scale of the difference relative to the proposition.</li>
+                    <li><strong>5,812 kWh Growth Annotation | Score: 1</strong>: Noting that each person in a developed country added approximately 5,812 kWh of annual consumption since 1971 to the overall developed country trend reflects a largely earnest notation that supports the counter-argument with a visually verifiable trend, ultimately reinforcing the counter-argument in a subtly persuasive manner without distorting the underlying data.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Final Reflection</h2>
+
+                <p>The process of finding the proposition visuals proved to be relatively straightforward since the % of GNI was a consistent metric across the datasets' range of time, requiring minimal transformations or manipulation, while constructing convincing counter-argument visualizations required much more deliberate choices in order to provide a reasonable argument with subtle deceptive choices. An example of which taking the form of the 2010 cutoff in the cumulative visualization as this process required knowing the exact time frame where the developing group's trend began to shift, in order to properly mask the most recent observations, and the 33x annotation requiring us to find a comparison that was technically true but is largely misleading. The binning of different income groups was also relatively straightforward, as it was shifting the granularity from four categories to three for easier comparison. Throughout the design process, the most surprising factor was how the choice of metric, whether it was the % of GNI vs. absolute dollars for a draft visualization, annual damages vs. cumulative totals, or mean per country vs. group sum, influenced which side of the proposition the resulting visualizations supported, as just changing the metric or how they were grouped could drastically alter results.</p>
+
+                <p>The closest definition of "ethical analysis and visualization" we could find was that it is ethical to enhance existing data trends through design choices while masking visible patterns for persuasion is something closer to manipulation. While designing the visualizations and applying certain data transformation techniques, we realized that our deliberate design choices could either enhance or significantly distort what trends the viewers engage with such as choices involving clipping the cumulative chart at 2010, compared to choices that prime the viewer such as color-scheme, filled area, or title language. For instance, by clipping certain trends up to 2010, we effectively masked the underlying information available to the viewer while placing heavier emphasis on the visible trend to further our argument. Choices regarding color-scheme, shading, or naming conventions for titling can be just as potentially deceptive, however, these latter decisions are closer to design choices that persuade viewers through visual cues rather than directly meddling with the true data values. The visualization with the cutoff at 2010 is difficult to defend ethically as it involves the most direct case of data manipulation while the filled area under the Developed line in the counter visualization is more ambiguous since shading enclosed areas is much closer to an earnest design convention than a directly misleading decision.</p>
+
+                <p>We explored the bounds between acceptable persuasion and misleading deception, asking how far data can be transformed to support a narrative while still remaining faithful to the underlying trends, with our initial boundary being the difference mentioned above. However, we found that ethical considerations also go beyond simple choices as the decision also depends on the stakes of the topic at hand. In the case where climate data or CO2 damage trends are framed deceptively, the countries that we perceive to be held responsible are largely influenced by our deliberate manipulations, going as far as reinterpreting who contributes to climate financing funds or what policy constraints are placed on developing, developed, or low-income economies. These deliberate choices are not abstract consequences that can be taken lightly, as visualizations with numerous convincing elements can have misleading arguments and potentially harmful effects when applied to real world policies. Going back to the 2010 cutoff and the 33x annotation in both counter-argument visualizations, these deliberate decisions to transform the data, for the purpose of acknowledging a counter position, can be largely invisible in terms of its deceptive aspects and have unintended consequences when used as supporting evidence for a potentially damaging policy. In short, just as data scientists are obligated to swear an oath of ethical practice, data visualization designers carry a similar responsibility to ensure that their findings remain as faithful and non-misleading as possible, especially when handling relatively sensitive data, and to assess whether or not the techniques used would cross the line from persuasion to manipulation, or whether this distinction is subjective to the topic at hand. So although we draw the line at the enhancing vs. changing line, caution should be the utmost priority when handling sensitive data.</p>
+            </section>
+        </main>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"c822b88e119346678db149ed7b7721c9","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
